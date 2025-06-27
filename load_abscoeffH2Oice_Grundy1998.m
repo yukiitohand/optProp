@@ -16,7 +16,7 @@ function [abscoeffH2Oice_Grundy1998] = load_abscoeffH2Oice_Grundy1998(varargin)
 %    abscoeffH2Oice_Grundy1998: struct
 
 fname = 'alpha_H2O.ascii';
-dirpath = '/Users/yukiitoh/Box Sync/data/ancillary/optprop/Grundy/alpha_H2O.ascii/';
+dirpath = '/Users/itohy1/data/ancillary/optprop/Grundy/alpha_H2O.ascii/';
 clearcache = false;
 
 if (rem(length(varargin),2)==1)

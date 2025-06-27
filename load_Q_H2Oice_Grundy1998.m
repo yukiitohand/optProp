@@ -129,7 +129,78 @@ elseif ~exist(infocachefilepath,'file') || overwrite
 
                     Q_H2Oicelib_Grundy1998 = merge_struct(Q_H2Oicelib_Grundy1998,Qw_lib);
                 end
+            case 4
+                dirpath_Q = '/Users/itohy1/src/python/mie_yuki/';
+                fnameList = {'Q_h2oIce_Grundy1998_150Kto270K.mat'};
+                Q_H2Oicelib_Grundy1998 = [];
+                for jdx = 1:length(fnameList)
+                    fname = fnameList{jdx};
+                    Q = load(joinPath(dirpath_Q,fname));
+                    n = length(Q.r);
+                    Qw_lib = struct('wavelength',cell(n,1),'Q',cell(n,1),'libname',cell(n,1),...
+                                   'unit_wavelength',cell(n,1),'name',cell(n,1),'unit_Q',cell(n,1));
+                    for i=1:n
+                        Qw_lib(i).wavelength = wv;
+                        Qw_lib(i).Q = -Q.Qext(:,i)+Q.Qsca(:,i);
+                        Qw_lib(i).unit_Q = '';
+                        Qw_lib(i).unit_wavelength = 'nm';
+                        Qw_lib(i).name = sprintf( ...
+                            'Qw_H2Oice_Grundy_temp%3dK_r%2.1fum', ...
+                            Q.temp(i), Q.r(i) ...
+                            );
+                        Qw_lib(i).libname = fname;
 
+                    end
+                    Q_H2Oicelib_Grundy1998 = merge_struct(Q_H2Oicelib_Grundy1998,Qw_lib);
+                end
+            case 5
+                dirpath_Q = '/Users/itohy1/src/python/mie_yuki/';
+                fnameList = {'Q_h2oIce_Grundy1998_150Kto220K.mat'};
+                Q_H2Oicelib_Grundy1998 = [];
+                for jdx = 1:length(fnameList)
+                    fname = fnameList{jdx};
+                    Q = load(joinPath(dirpath_Q,fname));
+                    n = length(Q.r);
+                    Qw_lib = struct('wavelength',cell(n,1),'Q',cell(n,1),'libname',cell(n,1),...
+                                   'unit_wavelength',cell(n,1),'name',cell(n,1),'unit_Q',cell(n,1));
+                    for i=1:n
+                        Qw_lib(i).wavelength = wv;
+                        Qw_lib(i).Q = -Q.Qext(:,i)+Q.Qsca(:,i);
+                        Qw_lib(i).unit_Q = '';
+                        Qw_lib(i).unit_wavelength = 'nm';
+                        Qw_lib(i).name = sprintf( ...
+                            'Qw_H2Oice_Grundy_temp%3dK_r%2.1fum', ...
+                            Q.temp(i), Q.r(i) ...
+                            );
+                        Qw_lib(i).libname = fname;
+
+                    end
+                    Q_H2Oicelib_Grundy1998 = merge_struct(Q_H2Oicelib_Grundy1998,Qw_lib);
+                end
+            case 9
+                dirpath_Q = '/Users/itohy1/src/python/mie_yuki/';
+                fnameList = {'Q_h2oIce_Grundy1998_150Kto230K.mat'};
+                Q_H2Oicelib_Grundy1998 = [];
+                for jdx = 1:length(fnameList)
+                    fname = fnameList{jdx};
+                    Q = load(joinPath(dirpath_Q,fname));
+                    n = length(Q.r);
+                    Qw_lib = struct('wavelength',cell(n,1),'Q',cell(n,1),'libname',cell(n,1),...
+                                   'unit_wavelength',cell(n,1),'name',cell(n,1),'unit_Q',cell(n,1));
+                    for i=1:n
+                        Qw_lib(i).wavelength = wv;
+                        Qw_lib(i).Q = -Q.Qext(:,i)+Q.Qsca(:,i);
+                        Qw_lib(i).unit_Q = '';
+                        Qw_lib(i).unit_wavelength = 'nm';
+                        Qw_lib(i).name = sprintf( ...
+                            'Qw_H2Oice_Grundy_temp%3dK_r%2.1fum', ...
+                            Q.temp(i), Q.r(i) ...
+                            );
+                        Qw_lib(i).libname = fname;
+
+                    end
+                    Q_H2Oicelib_Grundy1998 = merge_struct(Q_H2Oicelib_Grundy1998,Qw_lib);
+                end
             otherwise
                     error('opt %d is not defined',opt);
         end
